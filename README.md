@@ -31,6 +31,7 @@ site quando abrirmos no navegador: sudo mkdir -p /var/www/nome.do.site/public_ht
   Passo 14: No nosso caso, fizemos do 0, copiamos o seguinte codigo:
 sudo tee ifrn.conf<<EOF
 <VirtualHost *:80>
+
     ServerAdmin admin@ifrn
     
     ServerName ifrn

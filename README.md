@@ -32,11 +32,17 @@ site quando abrirmos no navegador: sudo mkdir -p /var/www/nome.do.site/public_ht
 sudo tee ifrn.conf<<EOF
 <VirtualHost *:80>
     ServerAdmin admin@ifrn
+    
     ServerName ifrn
+    
     ServerAlias www.ifrn
+    
     DocumentRoot /var/www/ifrn/public_html
+    
     ErrorLog ${APACHE_LOG_DIR}/error.log
+    
     CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
 </Virtualhost>
 EOF
 

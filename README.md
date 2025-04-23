@@ -28,12 +28,30 @@ site quando abrirmos no navegador: sudo mkdir -p /var/www/nome.do.site/public_ht
   
   Passo 13: salvamos o arquivo nano com ctrl + x e entramos com o cd /etc/apache2/sites-available/ e copiamos os dados do .conf que já tem (caso já tenha).
   
-  Passo 14: Voltamos para o arquivo e colamos o que pegamos no .conf da maquina
+  Passo 14: No nosso caso, fizemos do 0, copiamos o seguinte codigo:
+sudo tee ifrn.conf<<EOF
+<VirtualHost *:80>
+    ServerAdmin admin@ifrn
+    ServerName ifrn
+    ServerAlias www.ifrn
+    DocumentRoot /var/www/ifrn/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</Virtualhost>
+EOF
+
+*nomes meramente ilustrativos*
+
+  Passo 15: apos isso, habilitamos nosso site com o sdo a2ensite (nome do arquivo).conf e depois podemos inserir as informaçoes para acessar de maneira mais facil o site, pelo nome dele mesmo, usando o sudo echo "127.0.0.1 aluno" e jogamos isso pro arquivo de host usando o sudo tee -a /etc/hosts
   
-  Passo 15:
+  Passo 16: e por fim, fazemos o restart do apache2 usando o sudo /etc/init.d/apache2 restart
   
-  Passo 16:
-  
-  Passo 17:
+  Passo 17 ("bonus"): verificando com o comando ls -la apos o salvamento do arquivo, vemos que ele não tem permissão de escrita, mas ele tem que ter, então usamos o comando sudo chmod +x (nome do arquivo).sh
+
+  Depois disso tudo, verificamos no terminal linux se de fato vai instalar. 
+
+  ./(nome do arquivo).sh
+
+  Caso haja erros, corrija-os!
   
   
